@@ -1,0 +1,15 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const exampleUrl = getRelativeLocaleUrl("en", "example");
+---
+
+<html lang="en">
+    <meta charset="UTF-8" />
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <a href={exampleUrl}>Example</a>
+    </body>
+</html>
