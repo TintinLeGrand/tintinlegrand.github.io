@@ -1,0 +1,38 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import "./Layout.css";
+
+const { title, description } = Astro.props;
+const currentLang = Astro.currentLocale;
+
+const currentPath = Astro.url.pathname
+  .replace(`/${currentLang}`, "")
+  .replace(/^\//, "");
+---
+
+<html lang={currentLang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        {
+          currentLang === "fr" ? (
+            <a href={getRelativeLocaleUrl("en", currentPath)}>English</a>
+          ) : (
+            <a href={getRelativeLocaleUrl("fr", currentPath)}>Français</a>
+          )
+        }
+      </nav>
+    </header>
+    <main class="main">
+      <slot />
+    </main>
+  </body>
+</html>

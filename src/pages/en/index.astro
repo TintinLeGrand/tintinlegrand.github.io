@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const exampleUrl = getRelativeLocaleUrl("en", "example");
+---
+
+<Layout>
+    <a href={exampleUrl}>Example</a>
+</Layout>
