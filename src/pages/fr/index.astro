@@ -1,10 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { getRelativeLocaleUrl } from "astro:i18n";
+import CardComponent from '../../components/CardComponent.astro';
 
 const exampleUrl = getRelativeLocaleUrl("fr", "exemple");
 ---
 
 <Layout>
-    <a href={exampleUrl}>Exemple</a>
+    <CardComponent content="Ethan" />
+    <CardComponent content="Description" />
+    <CardComponent content="Parcours" />
+    <CardComponent content="Projects" />
+    <CardComponent content="Links" />
 </Layout>

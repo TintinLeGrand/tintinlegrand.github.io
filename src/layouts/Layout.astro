@@ -1,12 +1,13 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getRelativeLocaleUrl } from "astro:i18n";
+import "./Layout.css";
 
 const { title, description } = Astro.props;
 const currentLang = Astro.currentLocale;
 
 const currentPath = Astro.url.pathname
-  .replace(`/${currentLang}`, '')
-  .replace(/^\//, '');
+  .replace(`/${currentLang}`, "")
+  .replace(/^\//, "");
 ---
 
 <html lang={currentLang}>
@@ -19,17 +20,18 @@ const currentPath = Astro.url.pathname
     <meta name="description" content={description} />
   </head>
   <body>
-    <header>
+    <header class="header">
       <nav>
-        {currentLang === 'fr' ? (
-          <a href={getRelativeLocaleUrl('en', currentPath)}>English</a>
-        ) : (
-          <a href={getRelativeLocaleUrl('fr', currentPath)}>Français</a>
-        )}
+        {
+          currentLang === "fr" ? (
+            <a href={getRelativeLocaleUrl("en", currentPath)}>English</a>
+          ) : (
+            <a href={getRelativeLocaleUrl("fr", currentPath)}>Français</a>
+          )
+        }
       </nav>
     </header>
-    <main>
-      Test
+    <main class="main">
       <slot />
     </main>
   </body>

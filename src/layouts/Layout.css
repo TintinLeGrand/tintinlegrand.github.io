@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --padding: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+header {
+    background: blue;
+    height: calc(var(--padding) * 3);
+    flex-shrink: 0;
+}
+
+main {
+    overflow-y: auto;
+    background: green;
+    display: flex;
+    flex-grow: 1;
+    gap: calc(var(--padding) * 8);
+    flex-direction: column;
+    padding: var(--padding) calc(var(--padding) * 2) calc(var(--padding) * 4) calc(var(--padding) * 2);
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: calc(var(--padding) );
+    align-items: center;
+}

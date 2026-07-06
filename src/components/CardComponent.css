@@ -1,0 +1,31 @@
+.card {
+    background-color: blue;
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid black;
+    max-width: 500px;
+    width: 100%;
+    height: fit-content;
+}
+
+@media screen and (max-height: 1080px) {
+    .card {
+        margin: 0;
+        background: red;
+        min-height: calc(100svh -  (var(--padding) * 8));
+        width: 100%;
+        top: calc(var(--padding) * 4);
+        /* box-shadow: 0 calc(var(--padding) / -2) 12px rgba(0, 0, 0, 0.15); */
+        border-radius: 8px;
+        scroll-snap-align: start;
+    }
+
+    .card:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .card:nth-child(even) {
+        background: #f0f0f0;
+    }
+}
